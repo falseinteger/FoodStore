@@ -15,28 +15,34 @@ public class DataService {
     lazy var categories: [CategoryInfo] = {
         return [
             CategoryInfo(Id: "Burgers", Name: "Tasty burger"),
+            CategoryInfo(Id: "Potato", Name: "Hot potato"),
             CategoryInfo(Id: "Drinks", Name: "Cold drinks and Coffee")
         ]
     }()
+    
     lazy var products: [String: [Product]?] = {
         return [
             "Burgers" : [
-                Product(NameProduct: "Burger Classic", ImageString: nil, Weight: 200, Unit: "gr.", Cost: 250),
-                Product(NameProduct: "Burger Cheese Land", ImageString: nil, Weight: 350, Unit: "gr.", Cost: 340),
-                Product(NameProduct: "Burger Big Father", ImageString: nil, Weight: 400, Unit: "gr.", Cost: 750),
+                Product(NameProduct: "Burger classic", ImageString: nil, Weight: 200, Unit: .gr, Cost: 250),
+                Product(NameProduct: "Burger cheese land", ImageString: nil, Weight: 350, Unit: .gr, Cost: 340),
+                Product(NameProduct: "Burger big father", ImageString: nil, Weight: 400, Unit: .gr, Cost: 750),
+            ],
+            "Potato" : [
+                Product(NameProduct: "Potato classic", ImageString: nil, Weight: 0.15, Unit: .gr, Cost: 150),
+                Product(NameProduct: "Potato extra", ImageString: nil, Weight: 0.6, Unit: .gr, Cost: 520)
             ],
             "Drinks" : [
-                Product(NameProduct: "Coca-cola", ImageString: nil, Weight: 0.3, Unit: "ml.", Cost: 120),
-                Product(NameProduct: "Sprite", ImageString: nil, Weight: 0.3, Unit: "ml.", Cost: 120),
-                Product(NameProduct: "Fanta", ImageString: nil, Weight: 0.3, Unit: "ml.", Cost: 120),
-                Product(NameProduct: "Evian", ImageString: nil, Weight: 0.25, Unit: "ml.", Cost: 200),
-                Product(NameProduct: "Orange juice", ImageString: nil, Weight: 0.25, Unit: "ml.", Cost: 450),
-                Product(NameProduct: "Apple juice", ImageString: nil, Weight: 0.25, Unit: "ml.", Cost: 500),
-                Product(NameProduct: "Pinapple juice", ImageString: nil, Weight: 0.25, Unit: "ml.", Cost: 550),
-                Product(NameProduct: "Tea", ImageString: nil, Weight: 0.25, Unit: "ml.", Cost: 150),
-                Product(NameProduct: "Coffee Classic", ImageString: nil, Weight: 0.2, Unit: "ml.", Cost: 200),
-                Product(NameProduct: "Coffee Latte", ImageString: nil, Weight: 0.2, Unit: "ml.", Cost: 250),
-                Product(NameProduct: "Coffee Cappuccino", ImageString: nil, Weight: 0.2, Unit: "ml.", Cost: 300),
+                Product(NameProduct: "Coca-cola", ImageString: nil, Weight: 0.3, Unit: .ml, Cost: 120),
+                Product(NameProduct: "Sprite", ImageString: nil, Weight: 0.3, Unit: .ml, Cost: 120),
+                Product(NameProduct: "Fanta", ImageString: nil, Weight: 0.3, Unit: .ml, Cost: 120),
+                Product(NameProduct: "Evian", ImageString: nil, Weight: 0.25, Unit: .ml, Cost: 200),
+                Product(NameProduct: "Orange juice", ImageString: nil, Weight: 0.25, Unit: .ml, Cost: 450),
+                Product(NameProduct: "Apple juice", ImageString: nil, Weight: 0.25, Unit: .ml, Cost: 500),
+                Product(NameProduct: "Pinapple juice", ImageString: nil, Weight: 0.25, Unit: .ml, Cost: 550),
+                Product(NameProduct: "Tea", ImageString: nil, Weight: 0.25, Unit: .ml, Cost: 150),
+                Product(NameProduct: "Coffee Classic", ImageString: nil, Weight: 0.2, Unit: .ml, Cost: 200),
+                Product(NameProduct: "Coffee Latte", ImageString: nil, Weight: 0.2, Unit: .ml, Cost: 250),
+                Product(NameProduct: "Coffee Cappuccino", ImageString: nil, Weight: 0.2, Unit: .ml, Cost: 300),
             ]
         ]
     }()

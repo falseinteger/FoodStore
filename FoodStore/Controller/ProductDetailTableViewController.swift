@@ -32,8 +32,8 @@ class ProductDetailTableViewController: UITableViewController {
     @IBOutlet weak var WeightLabel: UILabel!{
         didSet {
             let weight = product?.Weight ?? 0.0
-            let unit = product?.Unit ?? ""
-            WeightLabel?.text = "\(weight) \(unit)"
+            let unit = product?.Unit ?? .none
+            WeightLabel?.text = "\(weight)" + (unit == .none ? "" : " \(unit).")
         }
     }
     @IBOutlet weak var CountLabel: UILabel!
