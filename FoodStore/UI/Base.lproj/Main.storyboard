@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="O1y-a8-ilC">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="O1y-a8-ilC">
                                 <rect key="frame" x="0.0" y="120" width="375" height="547"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="16" minimumInteritemSpacing="16" id="zYs-4Z-Drc">
@@ -288,6 +288,7 @@
                         <outlet property="ProductImageView" destination="gFM-NU-hJs" id="MBL-7Z-sXQ"/>
                         <outlet property="TitleLabel" destination="TFj-7c-n58" id="6dL-7W-mDy"/>
                         <outlet property="WeightLabel" destination="BK7-i8-HUL" id="UyH-Bk-auj"/>
+                        <outlet property="WeightTextLabel" destination="mtF-fR-vUe" id="xm6-k7-78S"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Li9-la-c9t" userLabel="First Responder" sceneMemberID="firstResponder"/>

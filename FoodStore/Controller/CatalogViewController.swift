@@ -8,10 +8,10 @@
 
 import UIKit
 
-class CatalogViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class CatalogViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate {
 
-    let categories = DataService.shared().categories
-    let products = DataService.shared().products
+    var categories = DataService.shared().categories
+    var products = DataService.shared().products
     
     @IBOutlet weak var SearchBar: UISearchBar!
     @IBOutlet weak var ContentCollectionView: UICollectionView!
@@ -27,9 +27,54 @@ class CatalogViewController: UIViewController, UICollectionViewDataSource, UICol
         
         ContentCollectionView.dataSource = self
         ContentCollectionView.delegate = self
-        
+        SearchBar.delegate = self
     }
-
+    
+    // MARK - SearchText
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        print("[searchBar] searchBarSearchButtonClicked")
+        guard let searchText:String = searchBar.text else { return }
+        let newFindElements = DataService.shared().SearchProductsByText(searchText)
+        self.SetItems(newCategories: newFindElements.newCategory, newProducts: newFindElements.newProduct)
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String)  {
+        print("[searchBar] searchText: \(searchText)")
+        let newFindElements = DataService.shared().SearchProductsByText(searchText)
+        self.SetItems(newCategories: newFindElements.newCategory, newProducts: newFindElements.newProduct)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        print("[searchBar] searchBarCancelButtonClicked")
+        self.SetItems(newCategories: DataService.shared().categories, newProducts: DataService.shared().products)
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        print("[searchBar] searchBarTextDidBeginEditing")
+        searchBar.setShowsCancelButton(true, animated: true)
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar)  {
+        print("[searchBar] searchBarTextDidEndEditing")
+        searchBar.setShowsCancelButton(false, animated: true)
+    }
+    
+    // MARK -  Search text controller
+    private func SetItems(newCategories:[CategoryInfo], newProducts:[String: [Product]?] ) {
+        print("[SetItems] new items")
+        if newProducts.values.count <= 0 {
+            categories = DataService.shared().categories
+            products = DataService.shared().products
+        }
+        else {
+            categories = newCategories
+            products = newProducts
+        }
+        ContentCollectionView.reloadData()
+    }
     
     // MARK: - Navigation
 
@@ -58,7 +103,7 @@ class CatalogViewController: UIViewController, UICollectionViewDataSource, UICol
         
         return array?.count ?? 0
     }
-
+    
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {

@@ -9,5 +9,5 @@
 import Foundation
 
 enum WeightType {
-    case none, gr, ml
+    case none, g, ml, pieces
 }

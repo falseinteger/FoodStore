@@ -13,7 +13,7 @@ struct Product {
     var NameProduct: String
     var ImageString: String?
     
-    var Weight: Double
+    var Weight: Int
     var Unit: WeightType
     
     var Cost: Double

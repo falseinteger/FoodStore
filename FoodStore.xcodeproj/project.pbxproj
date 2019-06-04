@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		AB04ECE322A55A9F00D31444 /* ProductDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB04ECE222A55A9F00D31444 /* ProductDetailTableViewController.swift */; };
 		AB04ECE722A5638900D31444 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB04ECE622A5638900D31444 /* Enum.swift */; };
+		AB04ECEA22A56DA200D31444 /* CartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB04ECE922A56DA200D31444 /* CartService.swift */; };
+		AB04ECEC22A56E0200D31444 /* ProductCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB04ECEB22A56E0200D31444 /* ProductCart.swift */; };
 		AB19E7DE22A0144B005C2F47 /* ItemCatalogCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB19E7DD22A0144B005C2F47 /* ItemCatalogCollectionViewCell.swift */; };
 		AB19E7E222A01777005C2F47 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB19E7E122A01777005C2F47 /* Product.swift */; };
 		AB19E7E522A02449005C2F47 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB19E7E422A02449005C2F47 /* DataService.swift */; };
@@ -24,6 +26,8 @@
 /* Begin PBXFileReference section */
 		AB04ECE222A55A9F00D31444 /* ProductDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailTableViewController.swift; sourceTree = "<group>"; };
 		AB04ECE622A5638900D31444 /* Enum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
+		AB04ECE922A56DA200D31444 /* CartService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartService.swift; sourceTree = "<group>"; };
+		AB04ECEB22A56E0200D31444 /* ProductCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCart.swift; sourceTree = "<group>"; };
 		AB19E7DD22A0144B005C2F47 /* ItemCatalogCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCatalogCollectionViewCell.swift; sourceTree = "<group>"; };
 		AB19E7E122A01777005C2F47 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		AB19E7E422A02449005C2F47 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
@@ -63,6 +67,7 @@
 			children = (
 				AB19E7E122A01777005C2F47 /* Product.swift */,
 				AB19E7EB22A155F3005C2F47 /* CategoryInfo.swift */,
+				AB04ECEB22A56E0200D31444 /* ProductCart.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -80,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				AB19E7E422A02449005C2F47 /* DataService.swift */,
+				AB04ECE922A56DA200D31444 /* CartService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -199,10 +205,12 @@
 				AB25A98E22A006B200BE2027 /* CatalogViewController.swift in Sources */,
 				AB19E7E222A01777005C2F47 /* Product.swift in Sources */,
 				AB245A77229EB3030095089A /* AppDelegate.swift in Sources */,
+				AB04ECEA22A56DA200D31444 /* CartService.swift in Sources */,
 				AB19E7DE22A0144B005C2F47 /* ItemCatalogCollectionViewCell.swift in Sources */,
 				AB04ECE322A55A9F00D31444 /* ProductDetailTableViewController.swift in Sources */,
 				AB04ECE722A5638900D31444 /* Enum.swift in Sources */,
 				AB19E7E522A02449005C2F47 /* DataService.swift in Sources */,
+				AB04ECEC22A56E0200D31444 /* ProductCart.swift in Sources */,
 				AB19E7EC22A155F3005C2F47 /* CategoryInfo.swift in Sources */,
 				AB19E7EE22A1776C005C2F47 /* ItemCatalogHeaderCollectionReusableView.swift in Sources */,
 			);

@@ -26,14 +26,35 @@ class ProductDetailTableViewController: UITableViewController {
     @IBOutlet weak var CostLabel: UILabel!{
         didSet {
             let cost = product?.Cost ?? 0
-            CostLabel?.text = "\(cost) ₽"
+            CostLabel.text = cost <= 0 ? "Free" : String(format: "$ %.02f", cost)
+        }
+    }
+    @IBOutlet weak var WeightTextLabel: UILabel! {
+        didSet {
+            let unit = product?.Unit ?? .none
+            switch unit {
+            case .pieces:
+                WeightTextLabel?.text = "Pieces"
+            case .g, .ml:
+                WeightTextLabel?.text = "Weight"
+            default:
+                WeightTextLabel?.text = "Total"
+            }
         }
     }
     @IBOutlet weak var WeightLabel: UILabel!{
         didSet {
-            let weight = product?.Weight ?? 0.0
+            let weight = product?.Weight ?? 0
             let unit = product?.Unit ?? .none
-            WeightLabel?.text = "\(weight)" + (unit == .none ? "" : " \(unit).")
+            switch unit {
+                case .pieces:
+                    WeightLabel?.text = "\(weight)"
+                case .g, .ml:
+                    WeightLabel?.text = "\(weight)" + (unit == .none ? "" : " \(unit).")
+                default:
+                    WeightTextLabel?.text = "Total"
+                    WeightLabel?.text = "\(weight)"
+            }
         }
     }
     @IBOutlet weak var CountLabel: UILabel!

@@ -20,8 +20,15 @@ class ItemCatalogCollectionViewCell: UICollectionViewCell {
     var product: Product? {
         didSet {
             guard let item:Product = product else { return }
-            NameProductLabel.text = "\(item.NameProduct)\n\(item.Weight) \(item.Unit)."
-            CostDisplayLabel.text = "\(item.Cost) ₽"
+            NameProductLabel.text = "\(item.NameProduct)"
+            switch item.Unit {
+                case .pieces:
+                    NameProductLabel.text?.append("\n\(item.Unit) \(item.Weight)")
+                case .g, .ml:
+                    NameProductLabel.text?.append("\n\(item.Weight) \(item.Unit).")
+                default: break
+            }
+            CostDisplayLabel.text = item.Cost <= 0 ? "Free" : String(format: "$ %.02f", item.Cost)
             let image = product?.ImageString ?? "no-image"
             ImageView.image = UIImage(named: image)
         }
