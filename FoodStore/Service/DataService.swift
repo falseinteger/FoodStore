@@ -24,49 +24,56 @@ class DataService {
     lazy var products: [String: [Product]?] = {
         return [
             "Burgers" : [
-                Product(NameProduct: "Burger classic", ImageString: nil, Weight: 200, Unit: .g, Cost: 2.0),
-                Product(NameProduct: "Burger cheese land", ImageString: nil, Weight: 350, Unit: .g, Cost: 3.5),
-                Product(NameProduct: "Burger big father", ImageString: nil, Weight: 400, Unit: .g, Cost: 5.9),
+                Product(Id: 0, NameProduct: "Burger classic", ImageString: nil, Weight: 200, Unit: .g, Cost: 2.0),
+                Product(Id: 1, NameProduct: "Burger cheese land", ImageString: nil, Weight: 350, Unit: .g, Cost: 3.5),
+                Product(Id: 2, NameProduct: "Burger big father", ImageString: nil, Weight: 400, Unit: .g, Cost: 5.9),
             ],
             "Potato" : [
-                Product(NameProduct: "Potato classic", ImageString: nil, Weight: 150, Unit: .g, Cost: 1.0),
-                Product(NameProduct: "Potato extra", ImageString: nil, Weight: 250, Unit: .g, Cost: 2.0)
+                Product(Id: 3, NameProduct: "Potato classic", ImageString: nil, Weight: 150, Unit: .g, Cost: 1.0),
+                Product(Id: 4, NameProduct: "Potato extra", ImageString: nil, Weight: 250, Unit: .g, Cost: 2.0)
             ],
             "Drinks" : [
-                Product(NameProduct: "Coca-cola", ImageString: nil, Weight: 300, Unit: .ml, Cost: 0.89),
-                Product(NameProduct: "Sprite", ImageString: nil, Weight: 300, Unit: .ml, Cost: 0.89),
-                Product(NameProduct: "Fanta", ImageString: nil, Weight: 300, Unit: .ml, Cost: 0.89),
-                Product(NameProduct: "Evian", ImageString: nil, Weight: 250, Unit: .ml, Cost: 1.20),
-                Product(NameProduct: "Orange juice", ImageString: nil, Weight: 250, Unit: .ml, Cost: 2.79),
-                Product(NameProduct: "Apple juice", ImageString: nil, Weight: 250, Unit: .ml, Cost: 2.99),
-                Product(NameProduct: "Pinapple juice", ImageString: nil, Weight: 250, Unit: .ml, Cost: 2.79),
-                Product(NameProduct: "Tea", ImageString: nil, Weight: 250, Unit: .ml, Cost: 1.99),
-                Product(NameProduct: "Coffee Classic", ImageString: nil, Weight: 200, Unit: .ml, Cost: 1.99),
-                Product(NameProduct: "Coffee Latte", ImageString: nil, Weight: 200, Unit: .ml, Cost: 1.99),
-                Product(NameProduct: "Coffee Cappuccino", ImageString: nil, Weight: 200, Unit: .ml, Cost: 2.99),
+                Product(Id: 5, NameProduct: "Coca-cola", ImageString: nil, Weight: 300, Unit: .ml, Cost: 0.89),
+                Product(Id: 6, NameProduct: "Sprite", ImageString: nil, Weight: 300, Unit: .ml, Cost: 0.89),
+                Product(Id: 7, NameProduct: "Fanta", ImageString: nil, Weight: 300, Unit: .ml, Cost: 0.89),
+                Product(Id: 8, NameProduct: "Evian", ImageString: nil, Weight: 250, Unit: .ml, Cost: 1.20),
+                Product(Id: 9, NameProduct: "Orange juice", ImageString: nil, Weight: 250, Unit: .ml, Cost: 2.79),
+                Product(Id: 10, NameProduct: "Apple juice", ImageString: nil, Weight: 250, Unit: .ml, Cost: 2.99),
+                Product(Id: 11, NameProduct: "Pinapple juice", ImageString: nil, Weight: 250, Unit: .ml, Cost: 2.79),
+                Product(Id: 12, NameProduct: "Tea", ImageString: nil, Weight: 250, Unit: .ml, Cost: 1.99),
+                Product(Id: 13, NameProduct: "Coffee Classic", ImageString: nil, Weight: 200, Unit: .ml, Cost: 1.99),
+                Product(Id: 14, NameProduct: "Coffee Latte", ImageString: nil, Weight: 200, Unit: .ml, Cost: 1.99),
+                Product(Id: 15, NameProduct: "Coffee Cappuccino", ImageString: nil, Weight: 200, Unit: .ml, Cost: 2.99),
             ],
             "Other" : [
-                Product(NameProduct: "wet wipe", ImageString: nil, Weight: 1, Unit: .pieces, Cost: 0)
+                Product(Id: 16, NameProduct: "wet wipe", ImageString: nil, Weight: 1, Unit: .pieces, Cost: 0)
             ]
         ]
     }()
 
     // Mark - Search product
-    func SearchProductByNameProduct(_ NameProduct:String) -> Product? {
+    func SearchProductBy(_ Id:Int) -> Product? {
+        
+        for category in products {
+            guard let value = category.value?.first(where: { (product) -> Bool in
+                return product.Id == Id
+            }) else { continue }
+            return value
+        }
         
         guard let items = Array(products.values)[0] else { return nil }
         return items.first(where: { (product) -> Bool in
-            return product.NameProduct == NameProduct
+            return product.Id == Id
         })
     }
     
     // Mark - Search list products
-    func SearchProductsByText(_ searchText:String) -> (newCategory:[CategoryInfo], newProduct:[String: [Product]?]) {
+    func SearchProductsBy(_ searchText:String) -> (newCategory:[CategoryInfo], newProduct:[String: [Product]?]) {
         var cacheSearchProduct: [String: [Product]?] = [:]
         for category in products {
-            let values = category.value?.filter({ (product) -> Bool in
+            guard let values = category.value?.filter({ (product) -> Bool in
                 return product.NameProduct.lowercased().contains(searchText.lowercased())
-            })
+            }) else { continue }
             cacheSearchProduct.updateValue(values, forKey: category.key)
         }
         var cacheSearchCategoryInfo: [CategoryInfo] = []

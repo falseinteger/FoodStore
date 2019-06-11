@@ -10,9 +10,11 @@ import Foundation
 
 struct ProductCart {
     
-    var nameProduct:String
+    var Id:Int
     var count:Int
-    lazy var productInfo: Product? = {
-        return DataService.shared().SearchProductByNameProduct(nameProduct)
-    }()
+    var product: Product? {
+        get {
+            return DataService.shared().SearchProductBy(Id)
+        }
+    }
 }

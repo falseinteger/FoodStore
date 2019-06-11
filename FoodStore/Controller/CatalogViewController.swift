@@ -32,33 +32,31 @@ class CatalogViewController: UIViewController, UICollectionViewDataSource, UICol
     
     // MARK - SearchText
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        print("[searchBar] searchBarSearchButtonClicked")
         guard let searchText:String = searchBar.text else { return }
-        let newFindElements = DataService.shared().SearchProductsByText(searchText)
+        let newFindElements = DataService.shared().SearchProductsBy(searchText)
         self.SetItems(newCategories: newFindElements.newCategory, newProducts: newFindElements.newProduct)
         searchBar.resignFirstResponder()
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String)  {
+        #if DEBUG
         print("[searchBar] searchText: \(searchText)")
-        let newFindElements = DataService.shared().SearchProductsByText(searchText)
+        #endif
+        let newFindElements = DataService.shared().SearchProductsBy(searchText)
         self.SetItems(newCategories: newFindElements.newCategory, newProducts: newFindElements.newProduct)
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        print("[searchBar] searchBarCancelButtonClicked")
         self.SetItems(newCategories: DataService.shared().categories, newProducts: DataService.shared().products)
         searchBar.text = ""
         searchBar.resignFirstResponder()
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        print("[searchBar] searchBarTextDidBeginEditing")
         searchBar.setShowsCancelButton(true, animated: true)
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar)  {
-        print("[searchBar] searchBarTextDidEndEditing")
         searchBar.setShowsCancelButton(false, animated: true)
     }
     

@@ -100,6 +100,20 @@ class ProductDetailTableViewController: UITableViewController {
     
     @IBAction func AddToCart(_ sender: UIButton) {
         
+        guard let addProduct = product else {
+            assert(false, "Invalid element data")
+            return
+        }
+        
+        let newProductCart = ProductCart(Id: addProduct.Id, count: currentCount)
+        CartService.shared().listCart?.append(newProductCart)
+        #if DEBUG
+        print("[Cart] add new product id: \(addProduct.Id), count: \(currentCount)")
+        #endif
+        
+        let info = newProductCart.GetNotificationOfProduct()
+        
+        NotificationUIView.NotifiMe(model: info)
     }
     
     /*

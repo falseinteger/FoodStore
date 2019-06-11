@@ -14,7 +14,7 @@ public class CartService {
     
     private init() { }
     
-    
+    var listCart:[ProductCart]?
     
     static func shared() -> CartService {
         if uniqueInstance == nil {

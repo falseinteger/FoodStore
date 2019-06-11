@@ -21,6 +21,8 @@
 		AB245A7E229EB3030095089A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB245A7C229EB3030095089A /* Main.storyboard */; };
 		AB245A83229EB3050095089A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB245A81229EB3050095089A /* LaunchScreen.storyboard */; };
 		AB25A98E22A006B200BE2027 /* CatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB25A98D22A006B200BE2027 /* CatalogViewController.swift */; };
+		ABFE21B722A69F3E004BC171 /* NotificationUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFE21B622A69F3E004BC171 /* NotificationUIView.swift */; };
+		ABFE21B922A6AAEB004BC171 /* NotificationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFE21B822A6AAEB004BC171 /* NotificationInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		AB245A82229EB3050095089A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB245A84229EB3050095089A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB25A98D22A006B200BE2027 /* CatalogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewController.swift; sourceTree = "<group>"; };
+		ABFE21B622A69F3E004BC171 /* NotificationUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationUIView.swift; sourceTree = "<group>"; };
+		ABFE21B822A6AAEB004BC171 /* NotificationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +72,7 @@
 				AB19E7E122A01777005C2F47 /* Product.swift */,
 				AB19E7EB22A155F3005C2F47 /* CategoryInfo.swift */,
 				AB04ECEB22A56E0200D31444 /* ProductCart.swift */,
+				ABFE21B822A6AAEB004BC171 /* NotificationInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -127,6 +132,7 @@
 			children = (
 				AB19E7DD22A0144B005C2F47 /* ItemCatalogCollectionViewCell.swift */,
 				AB19E7ED22A1776C005C2F47 /* ItemCatalogHeaderCollectionReusableView.swift */,
+				ABFE21B622A69F3E004BC171 /* NotificationUIView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -210,9 +216,11 @@
 				AB04ECE322A55A9F00D31444 /* ProductDetailTableViewController.swift in Sources */,
 				AB04ECE722A5638900D31444 /* Enum.swift in Sources */,
 				AB19E7E522A02449005C2F47 /* DataService.swift in Sources */,
+				ABFE21B922A6AAEB004BC171 /* NotificationInfo.swift in Sources */,
 				AB04ECEC22A56E0200D31444 /* ProductCart.swift in Sources */,
 				AB19E7EC22A155F3005C2F47 /* CategoryInfo.swift in Sources */,
 				AB19E7EE22A1776C005C2F47 /* ItemCatalogHeaderCollectionReusableView.swift in Sources */,
+				ABFE21B722A69F3E004BC171 /* NotificationUIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
